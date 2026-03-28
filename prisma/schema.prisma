@@ -1,0 +1,378 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id               String   @id @default(cuid())
+  email            String   @unique
+  username         String?  @unique
+  name             String
+  password         String
+  avatar           String?
+  bio              String?
+  phoneNumber      String?
+  language         String   @default("id")
+  timezone         String   @default("Asia/Jakarta")
+  twoFactorEnabled Boolean  @default(false)
+  twoFactorSecret  String?
+  backupCodes      String?  
+  role             String   @default("USER")
+  uploadCount      Int      @default(0)
+  targetBooks      Int      @default(5)
+  targetPages      Int      @default(500)
+  xp               Int      @default(0)
+  badges           String?  
+  isSuspended      Boolean  @default(false)
+  lastLogin        DateTime?
+  lastIp           String?
+  birthday         DateTime?
+  gender           String?
+  country          String?
+  googleId         String?  @unique
+  githubId         String?  @unique
+  loginAlerts      Boolean  @default(true)
+  resetToken       String?  @unique
+  resetTokenExpiry DateTime?
+  lastActiveAt     DateTime?
+  createdAt        DateTime @default(now())
+
+  books         Book[]
+  comments      Comment[]
+  likes         Like[]
+  bookmarks     Bookmark[]
+  forumThreads  ForumThread[]
+  forumReplies  ForumReply[]
+  readHistory   ReadHistory[]
+  annotations   Annotation[]
+  notifications Notification[]
+  collections   Collection[]
+  reviews       Review[]
+  followers     Follow[] @relation("followers")
+  following     Follow[] @relation("following")
+  activities    Activity[]
+  reports       Report[]
+  sessions      Session[]
+  messages      Message[]
+  conversationParticipants ConversationParticipant[]
+  messageReactions MessageReaction[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  device    String?
+  browser   String?
+  os        String?
+  ip        String?
+  lastUsed  DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Category {
+  id          String  @id @default(cuid())
+  name        String  @unique
+  slug        String  @unique
+  icon        String  @default("folder")
+  description String?
+
+  books Book[]
+}
+
+model Book {
+  id            String   @id @default(cuid())
+  title         String
+  description   String?
+  author        String   @default("Unknown")
+  categoryId    String?
+  tags          String   @default("")
+  filePath      String
+  fileSize      Int      @default(0)
+  thumbnailPath String?
+  pageCount     Int      @default(0)
+  viewCount     Int      @default(0)
+  likeCount     Int      @default(0)
+  avgRating     Float    @default(0)
+  reviewCount   Int      @default(0)
+  color         String   @default("from-blue-400 to-blue-600")
+  uploaderId    String
+  createdAt     DateTime @default(now())
+
+  uploader  User       @relation(fields: [uploaderId], references: [id])
+  category  Category?  @relation(fields: [categoryId], references: [id])
+  comments  Comment[]
+  likes     Like[]
+  bookmarks Bookmark[]
+  readHistory ReadHistory[]
+  annotations Annotation[]
+  collectionItems CollectionItem[]
+  reviews   Review[]
+  activities Activity[]
+
+  @@index([categoryId])
+  @@index([viewCount])
+  @@index([createdAt])
+  @@index([avgRating])
+  @@index([likeCount])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  userId    String
+  bookId    String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@index([bookId])
+}
+
+model Like {
+  id        String   @id @default(cuid())
+  userId    String
+  bookId    String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, bookId])
+  @@index([bookId])
+}
+
+model Bookmark {
+  id        String   @id @default(cuid())
+  userId    String
+  bookId    String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, bookId])
+  @@index([userId])
+}
+
+model ForumThread {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  topicTag  String   @default("umum")
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user    User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  replies ForumReply[]
+}
+
+model ForumReply {
+  id        String   @id @default(cuid())
+  content   String
+  userId    String
+  threadId  String
+  parentId  String?
+  createdAt DateTime @default(now())
+
+  user   User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  thread ForumThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  parent ForumReply? @relation("ReplyToReply", fields: [parentId], references: [id], onDelete: Cascade)
+  children ForumReply[] @relation("ReplyToReply")
+}
+
+model ReadHistory {
+  id        String   @id @default(cuid())
+  userId    String
+  bookId    String
+  lastPage  Int      @default(1)
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, bookId])
+  @@index([userId, updatedAt])
+}
+
+model Annotation {
+  id        String   @id @default(cuid())
+  type      String   // "highlight" | "freehand" | "note"
+  page      Int
+  color     String
+  data      String   // JSON: rect, points, or position
+  text      String?  // Note text content
+  userId    String
+  bookId    String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@index([userId, bookId])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  type      String   @default("info") // "info" | "reply" | "like" | "system"
+  message   String
+  link      String?
+  read      Boolean  @default(false)
+  userId    String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, read])
+}
+
+model Collection {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  color       String   @default("from-blue-500 to-indigo-600")
+  userId      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user  User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items CollectionItem[]
+
+  @@index([userId])
+}
+
+model CollectionItem {
+  id           String   @id @default(cuid())
+  collectionId String
+  bookId       String
+  createdAt    DateTime @default(now())
+
+  collection Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  book       Book       @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@unique([collectionId, bookId])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Int      // 1-5
+  content   String?
+  userId    String
+  bookId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book Book @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, bookId])
+  @@index([bookId])
+}
+
+model Follow {
+  id          String   @id @default(cuid())
+  followerId  String
+  followingId String
+  createdAt   DateTime @default(now())
+
+  follower  User @relation("following", fields: [followerId], references: [id], onDelete: Cascade)
+  following User @relation("followers", fields: [followingId], references: [id], onDelete: Cascade)
+
+  @@unique([followerId, followingId])
+  @@index([followerId])
+  @@index([followingId])
+}
+
+model Activity {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String   // e.g. "UPLOAD_BOOK", "REVIEW_BOOK", "ADD_COLLECTION"
+  bookId    String?
+  content   String?  // JSON string for additional metadata
+  createdAt DateTime @default(now())
+
+  user User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  book Book? @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@index([type, createdAt])
+  @@index([userId, createdAt])
+}
+
+model Report {
+  id          String   @id @default(cuid())
+  reporterId  String
+  type        String   // "BOOK" | "REVIEW" | "THREAD" | "REPLY"
+  targetId    String
+  reason      String
+  status      String   @default("PENDING") // "PENDING" | "RESOLVED"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  reporter    User     @relation(fields: [reporterId], references: [id], onDelete: Cascade)
+
+  @@index([status])
+  @@index([targetId])
+}
+
+model Conversation {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  messages     Message[]
+  participants ConversationParticipant[]
+}
+
+model ConversationParticipant {
+  id             String    @id @default(cuid())
+  userId         String
+  conversationId String
+  lastReadAt     DateTime  @default(now())
+  clearedAt      DateTime?
+
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, conversationId])
+  @@index([userId])
+}
+
+model Message {
+  id             String   @id @default(cuid())
+  content        String
+  senderId       String
+  conversationId String
+  replyToId      String?
+  createdAt      DateTime @default(now())
+
+  sender       User         @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  replyTo      Message?     @relation("MessageReplies", fields: [replyToId], references: [id], onDelete: SetNull)
+  replies      Message[]    @relation("MessageReplies")
+  reactions    MessageReaction[]
+
+  @@index([conversationId])
+}
+
+model MessageReaction {
+  id        String   @id @default(cuid())
+  emoji     String
+  userId    String
+  messageId String
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  message Message @relation(fields: [messageId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, messageId, emoji])
+  @@index([messageId])
+}
