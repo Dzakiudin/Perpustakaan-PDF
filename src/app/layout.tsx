@@ -7,9 +7,9 @@ import NavbarWrapper from "@/components/NavbarWrapper";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ConfirmProvider } from "@/components/ConfirmModal";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import OnboardingTour from "@/components/OnboardingTour";
 import Footer from "@/components/Footer";
 import LayoutShell from "@/components/LayoutShell";
+import LazyOnboardingTour from "@/components/LazyOnboardingTour";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,7 +47,8 @@ export default async function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+        {/* Load Material Symbols async to prevent render blocking */}
+        <script dangerouslySetInnerHTML={{ __html: `!function(){var e=document.createElement("link");e.rel="stylesheet";e.href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap";document.head.appendChild(e)}();` }} />
         <meta name="theme-color" content="#FF5A5F" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="google" content="notranslate" />
@@ -64,7 +65,7 @@ export default async function RootLayout({
                     {children}
                   </ErrorBoundary>
                 </LayoutShell>
-                <OnboardingTour />
+                <LazyOnboardingTour />
                 <script
                   dangerouslySetInnerHTML={{
                     __html: `if ('serviceWorker' in navigator) { window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js')); }`,
