@@ -56,12 +56,12 @@ export default function Navbar({ user }: NavbarProps) {
 
     return (
         <>
-            {/* Left Sidebar - Premium Refined (Square edges against browser) */}
-            <aside className="hidden md:flex w-24 shrink-0 bg-primary flex-col items-center py-8 z-40 relative rounded-none h-screen overflow-y-auto overflow-x-hidden no-scrollbar border-r border-white/10">
-                {/* Logo Top */}
-                <Link href="/" className="mb-12 group">
-                    <div className="size-12 rounded-xl flex items-center justify-center text-white transition-transform group-hover:scale-110">
-                        <span className="material-symbols-outlined text-3xl">menu_book</span>
+            {/* Left Sidebar */}
+            <aside className="hidden md:flex w-[88px] shrink-0 bg-primary flex-col items-center py-8 gap-2 z-40 relative rounded-none h-screen overflow-y-auto overflow-x-hidden no-scrollbar border-r border-white/10">
+                {/* Logo */}
+                <Link href="/" className="mb-10 group">
+                    <div className="size-11 rounded-2xl flex items-center justify-center text-white transition-transform group-hover:scale-110 group-hover:rotate-3">
+                        <span className="material-symbols-outlined text-[28px]">menu_book</span>
                     </div>
                 </Link>
 
@@ -123,13 +123,13 @@ export default function Navbar({ user }: NavbarProps) {
                 </div>
             </aside>
 
-            {/* Topbar inside the App Window */}
-            <header className="absolute top-0 right-0 left-0 md:left-24 h-20 md:h-24 z-30 flex items-center justify-between px-3 md:px-12 bg-transparent pointer-events-none gap-2 md:gap-4">
+            {/* Topbar */}
+            <header className="absolute top-0 right-0 left-0 md:left-[88px] h-20 md:h-24 z-30 flex items-center justify-between px-4 md:px-10 bg-transparent pointer-events-none gap-3 md:gap-6">
                 {/* Search */}
                 <NavSearch searchPlaceholder={t("search_placeholder")} />
 
                 {/* Right Side Actions */}
-                <div className="flex items-center gap-2 md:gap-4 shrink-0 pointer-events-auto">
+                <div className="flex items-center gap-2.5 md:gap-3 shrink-0 pointer-events-auto">
                     {user ? (
                         <>
                             <NavNotifications
@@ -140,11 +140,11 @@ export default function Navbar({ user }: NavbarProps) {
                             <NavUserMenu user={user} t={t} />
                         </>
                     ) : (
-                        <div className="flex items-center gap-3">
-                            <Link href="/login" className="px-6 py-3 rounded-full bg-surface border border-border text-text-main font-bold text-sm shadow-sm hover:bg-surface-hover transition-all">
+                        <div className="flex items-center gap-2.5">
+                            <Link href="/login" className="px-5 py-2.5 rounded-xl bg-surface border border-border text-text-main font-semibold text-sm shadow-sm hover:bg-surface-hover active:scale-95 transition-all">
                                 {t("login")}
                             </Link>
-                            <Link href="/login?tab=register" className="px-6 py-3 rounded-full bg-primary text-white font-bold text-sm shadow-md hover:bg-primary-hover hover:-translate-y-0.5 transition-all">
+                            <Link href="/login?tab=register" className="px-5 py-2.5 rounded-xl bg-primary text-white font-semibold text-sm shadow-md hover:bg-primary-hover hover:-translate-y-0.5 active:scale-95 transition-all">
                                 {t("register")}
                             </Link>
                         </div>
@@ -152,31 +152,25 @@ export default function Navbar({ user }: NavbarProps) {
                 </div>
             </header>
 
-            {/* Mobile Bottom Navigation Bar */}
-            <nav className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface/90 backdrop-blur-2xl border-t border-border z-[100] flex items-center justify-around px-2 pb-safe shadow-[0_-8px_30px_rgba(0,0,0,0.05)] dark:shadow-[0_-8px_30px_rgba(0,0,0,0.2)]">
-                <Link href="/" title={t("nav_home")} className={`flex flex-col items-center justify-center w-12 h-full gap-1 transition-all ${isActive("/") ? "text-primary scale-110" : "text-text-muted hover:text-text-main"}`}>
-                    <span className={`material-symbols-outlined text-[24px] ${isActive("/") ? "fill-icon" : ""}`}>home</span>
-                </Link>
-                <Link href="/forum" title={t("nav_forum")} className={`flex flex-col items-center justify-center w-12 h-full gap-1 transition-all ${isActive("/forum") ? "text-primary scale-110" : "text-text-muted hover:text-text-main"}`}>
-                    <span className={`material-symbols-outlined text-[24px] ${isActive("/forum") ? "fill-icon" : ""}`}>forum</span>
-                </Link>
-                <Link href="/social" title={t("nav_social")} className={`relative flex flex-col items-center justify-center w-12 h-full gap-1 transition-all ${isActive("/social") ? "text-primary scale-110" : "text-text-muted hover:text-text-main"}`}>
-                    <span className={`material-symbols-outlined text-[24px] ${isActive("/social") ? "fill-icon" : ""}`}>diversity_3</span>
-                    {chatUnread > 0 && (
-                        <span className="absolute top-2 right-1 size-4 rounded-full bg-primary text-white text-[9px] font-black flex items-center justify-center shadow-md">
-                            {chatUnread > 9 ? "9+" : chatUnread}
-                        </span>
-                    )}
-                </Link>
-                <Link href="/koleksi" title={t("profile_collections")} className={`flex flex-col items-center justify-center w-12 h-full gap-1 transition-all ${isActive("/koleksi") ? "text-primary scale-110" : "text-text-muted hover:text-text-main"}`}>
-                    <span className={`material-symbols-outlined text-[24px] ${isActive("/koleksi") ? "fill-icon" : ""}`}>collections_bookmark</span>
-                </Link>
-                <Link href="/dashboard/notes" title={t("profile_stats_annotations")} className={`flex flex-col items-center justify-center w-12 h-full gap-1 transition-all ${isActive("/dashboard/notes") ? "text-primary scale-110" : "text-text-muted hover:text-text-main"}`}>
-                    <span className={`material-symbols-outlined text-[24px] ${isActive("/dashboard/notes") ? "fill-icon" : ""}`}>description</span>
-                </Link>
-                <Link href="/settings" title={t("nav_settings")} className={`flex flex-col items-center justify-center w-12 h-full gap-1 transition-all ${isActive("/settings") ? "text-primary scale-110" : "text-text-muted hover:text-text-main"}`}>
-                    <span className={`material-symbols-outlined text-[24px] ${isActive("/settings") ? "fill-icon" : ""}`}>settings</span>
-                </Link>
+            {/* Mobile Bottom Navigation */}
+            <nav className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface/95 backdrop-blur-2xl border-t border-border z-[100] flex items-center justify-around px-1 pb-safe shadow-[0_-4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.25)]">
+                {[
+                    { href: "/", icon: "home", label: t("nav_home") },
+                    { href: "/forum", icon: "forum", label: t("nav_forum") },
+                    { href: "/social", icon: "diversity_3", label: t("nav_social"), badge: chatUnread },
+                    { href: "/koleksi", icon: "collections_bookmark", label: t("profile_collections") },
+                    { href: "/settings", icon: "settings", label: t("nav_settings") },
+                ].map((item) => (
+                    <Link key={item.href} href={item.href} title={item.label} className={`relative flex flex-col items-center justify-center w-14 h-full gap-0.5 transition-all ${isActive(item.href) ? "text-primary" : "text-text-muted active:text-text-main"}`}>
+                        <span className={`material-symbols-outlined text-[22px] ${isActive(item.href) ? "fill-icon" : ""}`}>{item.icon}</span>
+                        <span className="text-[9px] font-bold uppercase tracking-wider leading-none">{item.label.split(' ')[0]}</span>
+                        {item.badge && item.badge > 0 && (
+                            <span className="absolute top-1.5 right-1.5 size-4 rounded-full bg-primary text-white text-[8px] font-black flex items-center justify-center shadow-md">
+                                {item.badge > 9 ? "9+" : item.badge}
+                            </span>
+                        )}
+                    </Link>
+                ))}
             </nav>
         </>
     );

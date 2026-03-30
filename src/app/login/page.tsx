@@ -210,7 +210,7 @@ function LoginContent() {
                 <div className="w-full max-w-[500px] flex flex-col gap-10 animate-fade-up">
                     {/* Header */}
                     <div className="flex flex-col items-center text-center gap-4">
-                        <div className="size-20 rounded-[28px] bg-gradient-to-br from-primary to-[#0f5bb5] flex items-center justify-center text-white shadow-[0_0_40px_rgba(19,127,236,0.3)] mb-2 group transition-transform hover:rotate-6">
+                        <div className="size-20 rounded-[28px] bg-gradient-to-br from-primary to-[#E5484D] flex items-center justify-center text-white shadow-[0_0_40px_rgba(255,90,95,0.3)] mb-2 group transition-transform hover:rotate-6">
                             <span className="material-symbols-outlined text-4xl fill-icon">menu_book</span>
                         </div>
                         <h1 className="text-4xl font-black text-text-main uppercase tracking-tighter">
@@ -273,7 +273,7 @@ function LoginContent() {
                                     <input required value={password} onChange={(e) => setPassword(e.target.value)} minLength={6} className="w-full h-14 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 rounded-2xl text-text-main px-6 font-bold outline-none focus:border-primary/50 focus:bg-black/10 dark:bg-white/10 transition-all" placeholder="••••••••" type="password" />
                                 </div>
 
-                                <button disabled={loading} type="submit" className="w-full h-16 mt-2 bg-primary hover:bg-primary-hover disabled:opacity-40 text-white font-black uppercase tracking-[0.3em] text-[11px] rounded-2xl shadow-[0_0_30px_rgba(19,127,236,0.2)] hover:shadow-[0_0_40px_rgba(19,127,236,0.4)] transition-all flex items-center justify-center gap-3 group active:scale-95">
+                                <button disabled={loading} type="submit" className="w-full h-16 mt-2 bg-primary hover:bg-primary-hover disabled:opacity-40 text-white font-black uppercase tracking-[0.3em] text-[11px] rounded-2xl shadow-[0_0_30px_rgba(255,90,95,0.2)] hover:shadow-[0_0_40px_rgba(255,90,95,0.4)] transition-all flex items-center justify-center gap-3 group active:scale-95">
                                     {loading ? (
                                         <>
                                             <span className="material-symbols-outlined animate-spin text-[22px]">progress_activity</span>

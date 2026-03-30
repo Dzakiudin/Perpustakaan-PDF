@@ -116,7 +116,7 @@ export default function ForumPage() {
                 </div>
 
                 {/* Search Bar & Stats */}
-                <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-surface p-8 rounded-[40px] border border-black/5 dark:border-white/5 shadow-xl">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-surface p-8 rounded-[32px] border border-black/5 dark:border-white/5 shadow-xl">
                     <form onSubmit={handleSearch} className="flex-1 flex items-center gap-3 w-full">
                         <div className="relative flex-1 group">
                             <span className="material-symbols-outlined text-text-muted absolute left-4 top-1/2 -translate-y-1/2 text-xl group-focus-within:text-primary transition-colors">search</span>
@@ -281,7 +281,7 @@ export default function ForumPage() {
                         { label: t("forum_stats_knowledge"), val: forumStats.books.toLocaleString("id-ID"), icon: "library_books", sub: t("forum_stats_collections") },
                         { label: t("forum_stats_member"), val: forumStats.users.toLocaleString("id-ID"), icon: "group", sub: t("forum_stats_researchers") }
                     ].map((s, i) => (
-                        <div key={i} className="p-8 rounded-[40px] bg-surface border border-black/5 dark:border-white/5 flex items-center justify-between group hover:shadow-xl transition-all duration-500 ease-out">
+                        <div key={i} className="p-8 rounded-[32px] bg-surface border border-black/5 dark:border-white/5 flex items-center justify-between group hover:shadow-xl transition-all duration-500 ease-out">
                             <div className="flex flex-col gap-1">
                                 <span className="text-[10px] font-black text-primary uppercase tracking-[0.3em]">{s.label}</span>
                                 <span className="text-3xl font-black text-text-main mt-1">{s.val}</span>

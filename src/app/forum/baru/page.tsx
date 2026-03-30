@@ -96,7 +96,7 @@ export default function NewThreadPage() {
                                         type="button"
                                         onClick={() => setTopicTag(t.value)}
                                         className={`px-5 py-3 rounded-2xl flex items-center gap-2 transition-all duration-500 ease-out border font-black uppercase tracking-widest text-[10px] cursor-pointer hover:scale-[1.03] active:scale-[0.97] ${active
-                                            ? "bg-primary/10 border-primary shadow-[0_0_20px_rgba(19,127,236,0.1)] text-white"
+                                            ? "bg-primary/10 border-primary shadow-[0_0_20px_rgba(255,90,95,0.1)] text-white"
                                             : "bg-surface-hover/50 border-black/5 dark:border-white/5 text-text-muted hover:border-black/10 dark:border-white/10 hover:bg-black/10 dark:bg-white/10"
                                             }`}
                                     >
@@ -140,7 +140,7 @@ export default function NewThreadPage() {
                         <button
                             type="submit"
                             disabled={loading || !title.trim() || !content.trim()}
-                            className="w-full h-16 rounded-[24px] bg-gradient-to-r from-primary to-[#0f5bb5] text-white font-black uppercase tracking-[0.2em] text-xs shadow-[0_0_40px_rgba(19,127,236,0.2)] hover:shadow-[0_0_50px_rgba(19,127,236,0.4)] hover:scale-[1.02] active:scale-[0.98] disabled:opacity-30 disabled:hover:scale-100 transition-all duration-500 ease-out cursor-pointer flex items-center justify-center gap-4 group"
+                            className="w-full h-16 rounded-[24px] bg-gradient-to-r from-primary to-[#E5484D] text-white font-black uppercase tracking-[0.2em] text-xs shadow-[0_0_40px_rgba(255,90,95,0.2)] hover:shadow-[0_0_50px_rgba(255,90,95,0.4)] hover:scale-[1.02] active:scale-[0.98] disabled:opacity-30 disabled:hover:scale-100 transition-all duration-500 ease-out cursor-pointer flex items-center justify-center gap-4 group"
                         >
                             {loading ? (
                                 <>

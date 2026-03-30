@@ -27,7 +27,7 @@ export default function AdminSidebarNav() {
                         key={link.href}
                         href={link.href}
                         className={`flex items-center gap-4 px-5 py-3.5 rounded-2xl transition-all duration-300 group border ${isActive
-                            ? "bg-primary/10 border-primary/30 text-primary shadow-[0_4px_15px_-5px_rgba(19,127,236,0.2)]"
+                            ? "bg-primary/10 border-primary/30 text-primary shadow-[0_4px_15px_-5px_rgba(255,90,95,0.2)]"
                             : "text-text-muted hover:bg-black/5 dark:bg-white/5 hover:text-text-main border-transparent hover:border-black/5 dark:border-white/5"
                             }`}
                     >
@@ -39,7 +39,7 @@ export default function AdminSidebarNav() {
                             {link.label}
                         </span>
                         {isActive && (
-                            <div className="ml-auto size-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(19,127,236,0.8)]"></div>
+                            <div className="ml-auto size-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(255,90,95,0.8)]"></div>
                         )}
                     </Link>
                 );

@@ -161,7 +161,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ id: st
                                         <span className="text-[10px] font-black text-primary uppercase tracking-widest">{xpProgress}/100 XP</span>
                                     </div>
                                     <div className="h-1.5 w-full bg-black/10 dark:bg-white/5 rounded-full overflow-hidden border border-white/5">
-                                        <div className="h-full bg-gradient-to-r from-primary to-blue-400 shadow-[0_0_10px_rgba(19,127,236,0.5)] transition-all duration-1000" style={{ width: `${xpProgress}%` }}></div>
+                                        <div className="h-full bg-gradient-to-r from-primary to-blue-400 shadow-[0_0_10px_rgba(255,90,95,0.5)] transition-all duration-1000" style={{ width: `${xpProgress}%` }}></div>
                                     </div>
                                     <p className="text-[8px] font-bold text-text-muted italic text-right uppercase tracking-[0.1em]">{levelXpRemaing} XP to level {userLevel + 1}</p>
                                 </div>

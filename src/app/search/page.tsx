@@ -221,12 +221,12 @@ function SearchContent() {
                         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
                             {results.map(book => (
                                 <Link key={book.id} href={`/pdf/${book.id}`} className="group flex flex-col gap-4">
-                                    <div className="relative aspect-[3/4.2] rounded-[32px] overflow-hidden bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 shadow-2xl group-hover:shadow-[0_0_30px_rgba(19,127,236,0.15)] group-hover:border-primary/40 transition-all duration-500">
+                                    <div className="relative aspect-[3/4.2] rounded-[32px] overflow-hidden bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 shadow-2xl group-hover:shadow-[0_0_30px_rgba(255,90,95,0.15)] group-hover:border-primary/40 transition-all duration-500">
                                         {book.thumbnailPath ? (
                                             <Image src={book.thumbnailPath} fill sizes="(max-width: 640px) 50vw, 25vw" className="object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" alt={book.title} />
                                         ) : (
                                             <div className={`w-full h-full bg-surface flex items-center justify-center p-8 text-center opacity-30 group-hover:opacity-100 transition-opacity`}>
-                                                <p className="text-primary font-black text-xs uppercase leading-tight tracking-widest leading-none">{book.title}</p>
+                                                <p className="text-primary font-black text-xs uppercase leading-tight tracking-widest">{book.title}</p>
                                             </div>
                                         )}
                                         {/* Overlay Info */}

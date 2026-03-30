@@ -149,7 +149,7 @@ export default function SectionDetailPage({ params }: { params: Promise<{ sectio
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
                         {books.map((book) => (
                             <Link key={book.id} href={`/pdf/${book.id}`} className="group flex flex-col gap-3">
-                                <div className="relative aspect-[3/4.2] rounded-[28px] overflow-hidden bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 shadow-xl group-hover:shadow-[0_0_30px_rgba(19,127,236,0.15)] group-hover:border-primary/40 transition-all duration-500">
+                                <div className="relative aspect-[3/4.2] rounded-[28px] overflow-hidden bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 shadow-xl group-hover:shadow-[0_0_30px_rgba(255,90,95,0.15)] group-hover:border-primary/40 transition-all duration-500">
                                     {book.thumbnailPath ? (
                                         <Image src={book.thumbnailPath} fill sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 16vw" className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out" alt={book.title} />
                                     ) : (

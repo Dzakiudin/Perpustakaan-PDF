@@ -90,7 +90,7 @@ export default function SettingsPage() {
                     </aside>
 
                     {/* Content Area */}
-                    <div className="flex-1 bg-surface border border-border rounded-[40px] shadow-2xl p-8 md:p-12 min-h-[600px] relative overflow-hidden animate-fade-up [animation-delay:100ms]">
+                    <div className="flex-1 bg-surface border border-border rounded-[32px] shadow-2xl p-8 md:p-12 min-h-[600px] relative overflow-hidden animate-fade-up [animation-delay:100ms]">
                         {/* Decorative Background for Content Area */}
                         <div className="absolute top-0 right-0 p-12 opacity-[0.03] pointer-events-none">
                             <span className="material-symbols-outlined text-[200px]">{tabs.find(t => t.id === activeTab)?.icon}</span>

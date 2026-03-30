@@ -288,7 +288,7 @@ export default function BulkUploadPage() {
                             {item.status === "processing" && (
                                 <div className="absolute inset-x-0 top-0 h-1 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden">
                                     <div
-                                        className="h-full bg-primary transition-all duration-500 shadow-[0_0_10px_rgba(19,127,236,0.5)]"
+                                        className="h-full bg-primary transition-all duration-500 shadow-[0_0_10px_rgba(255,90,95,0.5)]"
                                         style={{ width: `${item.progress}%` }}
                                     />
                                 </div>

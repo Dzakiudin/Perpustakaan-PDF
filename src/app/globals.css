@@ -23,36 +23,49 @@
     --primary-hover: #E5484D;
     --accent: #FFB400;
 
-    /* Light Mode Colors (Premium Flat App) */
+    /* Light Mode — Premium Flat */
     --bg-dark: #F4F6F8;
-    /* Outer window background */
     --surface: #FFFFFF;
-    /* Main white container */
     --surface-hover: #F8FAFC;
     --border: #E8ECEF;
-    --text-main: #2D3748;
-    /* Dark elegant grey */
-    --text-muted: #718096;
-    /* Medium grey */
+    --text-main: #1A202C;
+    --text-muted: #64748B;
+
+    /* Standardised radii */
+    --radius-sm: 12px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
   }
 
   .dark {
-    --primary: #FF5A5F;
-    --primary-hover: #E5484D;
+    --primary: #FF6B6F;
+    --primary-hover: #FF5A5F;
     --accent: #FFB400;
 
-    /* Dark Mode Colors (Premium Flat Dark App) */
-    --bg-dark: #0A0F14;
-    --surface: #1A202C;
-    --surface-hover: #2D3748;
-    --border: #2D3748;
-    --text-main: #F7FAFC;
-    --text-muted: #A0AEC0;
+    /* Dark Mode — Deep Slate */
+    --bg-dark: #0B1120;
+    --surface: #141B2D;
+    --surface-hover: #1E293B;
+    --border: #1E293B;
+    --text-main: #F1F5F9;
+    --text-muted: #94A3B8;
+  }
+
+  /* Improve base typography contrast */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 }
 
+/* ═══════════════════════════════════════════
+   Scrollbar
+   ═══════════════════════════════════════════ */
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 ::-webkit-scrollbar {
@@ -81,68 +94,108 @@ html {
   background: #475569;
 }
 
-/* UI/UX Premium Utilities */
-.glass {
-  background: rgba(var(--surface-rgb, 255, 255, 255), 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+/* ═══════════════════════════════════════════
+   Focus & Accessibility
+   ═══════════════════════════════════════════ */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Remove outline for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ═══════════════════════════════════════════
+   Base Element Transitions
+   ═══════════════════════════════════════════ */
+a,
+button,
+input,
+select,
+textarea {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ═══════════════════════════════════════════
+   Shared UI Utilities
+   ═══════════════════════════════════════════ */
+
+/* Card elevation system */
+.card {
+  background: var(--surface);
   border: 1px solid var(--border);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-lg);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.card:hover {
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+.dark .card:hover {
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.25);
+}
+
+/* Premium glass surface */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid var(--border);
+}
+
+.dark .glass {
+  background: rgba(20, 27, 45, 0.85);
+}
+
+/* Primary glow for key elements */
 .glow-primary {
-  box-shadow: 0 10px 25px -5px rgba(255, 90, 95, 0.3);
+  box-shadow: 0 8px 20px -4px rgba(255, 90, 95, 0.25);
 }
 
-.text-glow {
-  text-shadow: none;
-}
-
-.dark .text-glow {
-  text-shadow: none;
-}
-
-.bg-noise {
-  background-image: none;
-  /* Removing noise for cleaner look */
-}
-
-.shimmer {
-  display: none;
-  /* Removing shimmer for pure flat look */
-}
-
-/* Premium Main App Window */
+/* Premium app window */
 .apple-glass {
   background: var(--surface);
   border: 1px solid var(--border);
-  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.03),
+    0 10px 40px -10px rgba(0, 0, 0, 0.08);
 }
 
 .dark .apple-glass {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 10px 40px -10px rgba(0, 0, 0, 0.4);
 }
 
+/* Hover-lift card */
 .pro-max-card {
-  transition: all 0.2s ease-out;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--border);
   background: var(--surface);
-  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .pro-max-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
-  border-color: var(--border);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.1);
 }
 
-/* Material Symbols - Pro Max tweak */
+.dark .pro-max-card:hover {
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.3);
+}
+
+/* ═══════════════════════════════════════════
+   Material Symbols
+   ═══════════════════════════════════════════ */
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   transition: font-variation-settings 0.2s;
-  /* Prevent browser translation from breaking icon ligatures */
   unicode-bidi: isolate;
   speak: none;
 }
@@ -156,7 +209,9 @@ html {
   font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-/* PDF Text Layer - official pdfjs-dist styles for text selection & copy */
+/* ═══════════════════════════════════════════
+   PDF Text Layer (pdfjs-dist)
+   ═══════════════════════════════════════════ */
 .textLayer {
   position: absolute;
   text-align: initial;
@@ -188,7 +243,7 @@ html {
 }
 
 .textLayer ::selection {
-  background: rgba(19, 127, 236, 0.4);
+  background: rgba(255, 90, 95, 0.3);
 }
 
 .textLayer .endOfContent {
@@ -214,11 +269,22 @@ html {
   outline-offset: 1px;
 }
 
-/* Skeleton loading */
+/* ═══════════════════════════════════════════
+   Animations & Keyframes
+   ═══════════════════════════════════════════ */
+@keyframes shimmer-anim {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 .skeleton {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.04) 25%, rgba(0, 0, 0, 0.08) 50%, rgba(0, 0, 0, 0.04) 75%);
   background-size: 200% 100%;
-  animation: shimmer-anim 1.5s infinite;
+  animation: shimmer-anim 1.5s ease-in-out infinite;
   border-radius: 8px;
 }
 
@@ -227,13 +293,12 @@ html {
   background-size: 200% 100%;
 }
 
-/* Fade up animation */
+/* Fade up — used by Suspense sections */
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(16px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -241,25 +306,64 @@ html {
 }
 
 .animate-fade-up {
-  animation: fade-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Base element smoothing */
-a,
-button,
-input,
-select,
-textarea {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+/* Fade in — overlay/backdrop */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out forwards;
+}
+
+/* Slide in from right — toast */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Gentle pulse — live indicator */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Shake — error state */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+/* ═══════════════════════════════════════════
+   Scrollbar Utilities
+   ═══════════════════════════════════════════ */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

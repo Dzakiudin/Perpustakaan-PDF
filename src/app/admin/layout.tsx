@@ -39,7 +39,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
                     <div className="flex flex-col gap-6">
                         {/* Brand Header */}
                         <Link href="/" className="flex items-center gap-4 px-2 py-2 group">
-                            <div className="size-12 rounded-xl bg-gradient-to-br from-primary to-[#0f5bb5] flex items-center justify-center text-white ring-1 ring-white/20 shadow-[0_0_15px_rgba(var(--primary-rgb),0.5)] group-hover:scale-105 group-hover:rotate-3 transition-all duration-300">
+                            <div className="size-12 rounded-xl bg-gradient-to-br from-primary to-[#E5484D] flex items-center justify-center text-white ring-1 ring-white/20 shadow-[0_0_15px_rgba(var(--primary-rgb),0.5)] group-hover:scale-105 group-hover:rotate-3 transition-all duration-300">
                                 <span className="material-symbols-outlined text-[24px]">menu_book</span>
                             </div>
                             <div className="flex flex-col">

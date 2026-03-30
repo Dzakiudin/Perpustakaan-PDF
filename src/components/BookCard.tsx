@@ -7,7 +7,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export function BookGrid({ books }: { books: any[] }) {
     return (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5 lg:gap-6">
             {books.map((book) => (
                 <BookCard key={book.id} book={book} />
             ))}
@@ -45,8 +45,8 @@ export function BookCard({ book }: { book: any }) {
     };
 
     return (
-        <Link href={`/pdf/${book.id}`} className="group flex flex-col gap-3 relative pro-max-card-wrapper border-0">
-            <div className="relative aspect-[3/4.2] rounded-2xl overflow-hidden bg-surface border border-border shadow-sm group-hover:shadow-xl group-hover:-translate-y-2 transition-all duration-300">
+        <Link href={`/pdf/${book.id}`} className="group flex flex-col gap-2.5 relative">
+            <div className="relative aspect-[3/4.2] rounded-2xl overflow-hidden bg-surface border border-border shadow-sm group-hover:shadow-xl group-hover:-translate-y-1.5 transition-all duration-300 ease-out">
                 {book.thumbnailPath ? (
                     <Image
                         src={book.thumbnailPath}
@@ -57,56 +57,56 @@ export function BookCard({ book }: { book: any }) {
                         alt={book.title || "Cover"}
                     />
                 ) : (
-                    <div className={`w-full h-full bg-gradient-to-br ${book.color || "from-blue-500 to-indigo-700"} flex items-center justify-center p-6 relative overflow-hidden transition-transform duration-500 ease-out group-hover:scale-105`}>
-                        <p className="text-white font-bold text-[14px] text-center leading-snug line-clamp-4 relative z-10 tracking-wider opacity-95">{book.title}</p>
+                    <div className={`w-full h-full bg-gradient-to-br ${book.color || "from-blue-500 to-indigo-700"} flex items-center justify-center p-5 relative overflow-hidden transition-transform duration-500 ease-out group-hover:scale-105`}>
+                        <p className="text-white font-bold text-sm text-center leading-snug line-clamp-4 relative z-10">{book.title}</p>
                     </div>
                 )}
 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out flex flex-col justify-end p-4">
-                    <div className="translate-y-8 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100 ease-out flex items-center justify-between">
-                        <div className="size-10 rounded-full bg-primary text-white flex items-center justify-center shadow-lg mb-2">
-                            <span className="material-symbols-outlined text-[24px] fill-icon">play_arrow</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 ease-out flex flex-col justify-end p-3.5">
+                    <div className="translate-y-6 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 delay-75 ease-out flex items-center justify-between">
+                        <div className="size-9 rounded-full bg-primary text-white flex items-center justify-center shadow-lg">
+                            <span className="material-symbols-outlined text-xl fill-icon">play_arrow</span>
                         </div>
 
-                        {/* Quick Save Action */}
+                        {/* Quick Save */}
                         <button
                             onClick={toggleSave}
                             disabled={saving}
-                            className={`size-10 rounded-full flex items-center justify-center backdrop-blur-md border transition-all active:scale-95 ${isSaved
+                            className={`size-9 rounded-full flex items-center justify-center backdrop-blur-md border transition-all active:scale-90 ${isSaved
                                 ? "bg-amber-500 border-amber-500 text-white shadow-lg"
                                 : "bg-white/10 border-white/20 text-white hover:bg-white/20"
                                 }`}
                         >
-                            <span className={`material-symbols-outlined text-[20px] ${isSaved ? "fill-icon" : ""}`}>
+                            <span className={`material-symbols-outlined text-lg ${isSaved ? "fill-icon" : ""}`}>
                                 {isSaved ? "bookmark_added" : "bookmark_add"}
                             </span>
                         </button>
                     </div>
                 </div>
 
-                {/* Category Badge - Desktop only on card top */}
+                {/* Category Badge */}
                 {book.category && (
-                    <div className="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-surface/90 backdrop-blur-md border border-black/5 dark:bg-black/80 dark:border-white/10 scale-95 origin-top-left group-hover:bg-primary group-hover:text-white transition-all duration-300 ease-out shadow-sm">
-                        <span className="text-[10px] font-black uppercase tracking-[0.15em] text-inherit">{book.category.name}</span>
+                    <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg bg-surface/90 backdrop-blur-md border border-black/5 dark:bg-black/70 dark:border-white/10 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                        <span className="text-[10px] font-bold uppercase tracking-wide text-inherit leading-none">{book.category.name}</span>
                     </div>
                 )}
             </div>
 
-            <div className="flex flex-col gap-1 px-1 mt-2">
-                <h3 className="text-text-main text-[15px] font-bold leading-tight line-clamp-1 group-hover:text-primary transition-colors duration-300 tracking-normal">{book.title}</h3>
-                <p className="text-text-muted text-[13px] font-medium leading-normal truncate">{book.author}</p>
-                <div className="flex items-center gap-3 mt-1 text-text-muted font-medium">
-                    <div className="flex items-center gap-1.5" title={`${book.viewCount || 0} ${t("pdf_engagement")}`}>
-                        <span className="material-symbols-outlined text-[16px]">visibility</span>
-                        <span className="text-[12px]">{book.viewCount || 0}</span>
+            <div className="flex flex-col gap-0.5 px-0.5">
+                <h3 className="text-text-main text-sm font-semibold leading-tight line-clamp-1 group-hover:text-primary transition-colors duration-300">{book.title}</h3>
+                <p className="text-text-muted text-xs font-medium leading-normal truncate">{book.author}</p>
+                <div className="flex items-center gap-2.5 mt-1 text-text-muted">
+                    <div className="flex items-center gap-1" title={`${book.viewCount || 0} ${t("pdf_engagement")}`}>
+                        <span className="material-symbols-outlined text-[14px]">visibility</span>
+                        <span className="text-[11px] font-medium">{book.viewCount || 0}</span>
                     </div>
-                    <div className="size-1 rounded-full bg-border"></div>
-                    <div className="flex items-center gap-1.5">
-                        <span className={`material-symbols-outlined text-[16px] ${isSaved ? "text-amber-500 fill-icon" : "text-primary"}`}>
+                    <div className="size-0.5 rounded-full bg-border"></div>
+                    <div className="flex items-center gap-1">
+                        <span className={`material-symbols-outlined text-[14px] ${isSaved ? "text-amber-500 fill-icon" : "text-primary"}`}>
                             {isSaved ? "bookmark" : "favorite"}
                         </span>
-                        <span className="text-[12px]">{book.likeCount || 0}</span>
+                        <span className="text-[11px] font-medium">{book.likeCount || 0}</span>
                     </div>
                 </div>
             </div>

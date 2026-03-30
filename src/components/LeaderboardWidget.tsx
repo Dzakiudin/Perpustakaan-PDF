@@ -62,7 +62,7 @@ export function LeaderboardWidget({ users }: { users: LeaderboardUser[] | null }
                             {user.avatar ? (
                                 <Image src={user.avatar} alt={user.name} fill sizes="40px" className="object-cover" />
                             ) : (
-                                <div className="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-text-main font-black text-sm">
+                                <div className="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-black text-sm">
                                     {user.name.substring(0, 2).toUpperCase()}
                                 </div>
                             )}

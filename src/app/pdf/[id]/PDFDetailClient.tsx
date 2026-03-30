@@ -607,7 +607,7 @@ export default function PDFDetailClient({ bookId }: PDFDetailClientProps) {
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8">
                             {similarBooks.map((sb) => (
                                 <Link key={sb.id} href={`/pdf/${sb.id}`} className="group flex flex-col gap-4">
-                                    <div className="relative aspect-[3/4.2] rounded-[24px] overflow-hidden bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 shadow-xl group-hover:shadow-[0_0_30px_rgba(19,127,236,0.15)] group-hover:border-primary/40 transition-all duration-500">
+                                    <div className="relative aspect-[3/4.2] rounded-[24px] overflow-hidden bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 shadow-xl group-hover:shadow-[0_0_30px_rgba(255,90,95,0.15)] group-hover:border-primary/40 transition-all duration-500">
                                         {sb.thumbnailPath ? (
                                             <Image src={sb.thumbnailPath} fill sizes="(max-width: 640px) 50vw, 20vw" className="object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" alt={sb.title || "Cover"} />
                                         ) : (

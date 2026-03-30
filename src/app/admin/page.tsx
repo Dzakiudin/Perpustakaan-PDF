@@ -153,7 +153,7 @@ export default async function AdminDashboardPage() {
                             </div>
                             <div className="flex items-center gap-6">
                                 <div className="flex items-center gap-2.5">
-                                    <div className="size-3 rounded-full bg-primary shadow-[0_0_8px_rgba(19,127,236,0.5)]"></div>
+                                    <div className="size-3 rounded-full bg-primary shadow-[0_0_8px_rgba(255,90,95,0.5)]"></div>
                                     <span className="text-[10px] font-black text-text-muted uppercase tracking-wider">Asset Ingress</span>
                                 </div>
                                 <div className="flex items-center gap-2.5">
@@ -168,7 +168,7 @@ export default async function AdminDashboardPage() {
                                 <div key={i} className="flex-1 flex flex-col items-center gap-4 group">
                                     <div className="w-full h-40 flex items-end gap-1.5 justify-center relative">
                                         <div
-                                            className="w-1/3 bg-gradient-to-t from-primary/40 to-primary rounded-t-xl transition-all duration-700 group-hover:scale-x-110 group-hover:shadow-[0_0_20px_rgba(19,127,236,0.3)]"
+                                            className="w-1/3 bg-gradient-to-t from-primary/40 to-primary rounded-t-xl transition-all duration-700 group-hover:scale-x-110 group-hover:shadow-[0_0_20px_rgba(255,90,95,0.3)]"
                                             style={{ height: `${Math.max(5, (day.books / maxActivity) * 100)}%` }}
                                         />
                                         <div

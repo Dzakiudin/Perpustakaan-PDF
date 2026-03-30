@@ -427,7 +427,7 @@ export default function ForumThreadPage() {
                             <button
                                 onClick={postReply}
                                 disabled={posting || !reply.trim()}
-                                className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-[11px] shadow-[0_0_30px_rgba(19,127,236,0.3)] hover:scale-105 active:scale-95 disabled:opacity-30 disabled:hover:scale-100 transition-all cursor-pointer"
+                                className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-[11px] shadow-[0_0_30px_rgba(255,90,95,0.3)] hover:scale-105 active:scale-95 disabled:opacity-30 disabled:hover:scale-100 transition-all cursor-pointer"
                             >
                                 {posting ? (
                                     <>

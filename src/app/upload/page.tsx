@@ -219,9 +219,9 @@ export default function UploadPage() {
                                             <img src={coverPreview} alt="" className="size-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all flex flex-col items-center justify-center gap-3 backdrop-blur-sm">
                                                 <div className="size-12 rounded-full bg-primary flex items-center justify-center shadow-lg">
-                                                    <span className="material-symbols-outlined text-text-main">edit</span>
+                                                    <span className="material-symbols-outlined text-white">edit</span>
                                                 </div>
-                                                <span className="text-[10px] font-black text-text-main uppercase tracking-widest">Swap Visual Node</span>
+                                                <span className="text-[10px] font-black text-white uppercase tracking-widest">Swap Visual Node</span>
                                             </div>
                                         </>
                                     ) : (
@@ -251,7 +251,7 @@ export default function UploadPage() {
                                         }`}
                                 >
                                     <input type="file" ref={fileInputRef} onChange={handleFileSelect} accept="application/pdf" className="hidden" />
-                                    <div className={`size-16 rounded-[20px] flex items-center justify-center transition-all duration-500 ${file ? "bg-primary text-white shadow-[0_0_30px_rgba(19,127,236,0.5)] rotate-0" : "bg-bg-dark text-text-muted group-hover:text-primary -rotate-6"
+                                    <div className={`size-16 rounded-[20px] flex items-center justify-center transition-all duration-500 ${file ? "bg-primary text-white shadow-[0_0_30px_rgba(255,90,95,0.4)] rotate-0" : "bg-bg-dark text-text-muted group-hover:text-primary -rotate-6"
                                         }`}>
                                         <span className="material-symbols-outlined text-3xl leading-none">{file ? "verified" : "upload_file"}</span>
                                     </div>
@@ -309,7 +309,7 @@ export default function UploadPage() {
                         <button
                             type="submit"
                             disabled={uploading || !file || !title}
-                            className="w-full h-20 rounded-[30px] bg-gradient-to-r from-primary to-[#0f5bb5] text-white font-black uppercase tracking-[0.3em] text-[13px] shadow-[0_0_50px_rgba(19,127,236,0.3)] hover:shadow-[0_0_60px_rgba(19,127,236,0.5)] hover:scale-[1.01] active:scale-[0.99] disabled:opacity-30 disabled:hover:scale-100 transition-all duration-500 ease-out cursor-pointer flex items-center justify-center gap-5 group"
+                            className="w-full h-20 rounded-[30px] bg-gradient-to-r from-primary to-primary-hover text-white font-black uppercase tracking-[0.3em] text-[13px] shadow-[0_0_50px_rgba(255,90,95,0.25)] hover:shadow-[0_0_60px_rgba(255,90,95,0.4)] hover:scale-[1.01] active:scale-[0.99] disabled:opacity-30 disabled:hover:scale-100 transition-all duration-500 ease-out cursor-pointer flex items-center justify-center gap-5 group"
                         >
                             {uploading ? (
                                 <>

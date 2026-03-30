@@ -40,7 +40,7 @@ export default function LayoutShell({ navbarServer, children }: Props) {
                 </NavbarWrapper>
 
                 <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden relative">
-                    <main className="flex-1 overflow-y-auto w-full pt-20 px-0 pb-20 md:pt-0 md:p-10 flex flex-col">
+                    <main className="flex-1 overflow-y-auto w-full pt-20 px-0 pb-20 md:pt-0 md:px-8 md:py-8 lg:px-10 lg:py-10 flex flex-col">
                         <div className="flex-1">
                             {children}
                         </div>

@@ -13,7 +13,7 @@ export default function AdminMobileNav() {
             {/* Header with Toggle */}
             <div className="md:hidden flex items-center justify-between p-4 bg-surface/80 backdrop-blur-md border-b border-black/5 dark:border-white/5 sticky top-0 z-20 shadow-sm">
                 <div className="flex items-center gap-3">
-                    <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-[#0f5bb5] flex items-center justify-center text-white shadow-sm ring-1 ring-white/20">
+                    <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-[#E5484D] flex items-center justify-center text-white shadow-sm ring-1 ring-white/20">
                         <span className="material-symbols-outlined text-[16px]">menu_book</span>
                     </div>
                     <h1 className="text-text-main text-lg font-black tracking-wide">Book-in <span className="text-primary font-normal">Admin</span></h1>
@@ -49,7 +49,7 @@ export default function AdminMobileNav() {
                         >
                             <div className="flex items-center justify-between mb-8">
                                 <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
-                                    <div className="size-10 rounded-xl bg-gradient-to-br from-primary to-[#0f5bb5] flex items-center justify-center text-white ring-1 ring-white/20 shadow-lg shadow-primary/20">
+                                    <div className="size-10 rounded-xl bg-gradient-to-br from-primary to-[#E5484D] flex items-center justify-center text-white ring-1 ring-white/20 shadow-lg shadow-primary/20">
                                         <span className="material-symbols-outlined text-[20px]">menu_book</span>
                                     </div>
                                     <span className="text-text-main text-xl font-black">Book-in</span>

@@ -72,7 +72,7 @@ export default async function CategoryPage({ params, searchParams }: { params: P
                         <BackButton href="/" label={t("category_return_hub") as string} />
 
                         <div className="flex items-center gap-6">
-                            <div className="size-20 md:size-24 rounded-[32px] bg-gradient-to-br from-primary to-[#0f5bb5] flex items-center justify-center text-white shadow-[0_20px_40px_-5px_rgba(19,127,236,0.3)]">
+                            <div className="size-20 md:size-24 rounded-[32px] bg-gradient-to-br from-primary to-[#E5484D] flex items-center justify-center text-white shadow-[0_20px_40px_-5px_rgba(255,90,95,0.3)]">
                                 <span className="material-symbols-outlined text-5xl leading-none">{category.icon || "category"}</span>
                             </div>
                             <div className="flex flex-col gap-1">

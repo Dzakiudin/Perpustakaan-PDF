@@ -45,30 +45,31 @@ export function ToastProvider({ children }: { children: ReactNode }) {
     };
 
     const colors: Record<ToastType, string> = {
-        success: "bg-emerald-500/20 border-emerald-500/50 text-emerald-400",
-        error: "bg-red-500/20 border-red-500/50 text-red-400",
-        warning: "bg-amber-500/20 border-amber-500/50 text-amber-400",
-        info: "bg-primary/20 border-primary/50 text-primary",
+        success: "bg-emerald-500/15 border-emerald-500/30 text-emerald-500",
+        error: "bg-red-500/15 border-red-500/30 text-red-500",
+        warning: "bg-amber-500/15 border-amber-500/30 text-amber-500",
+        info: "bg-primary/15 border-primary/30 text-primary",
     };
 
     return (
         <ToastContext.Provider value={{ toasts, addToast, removeToast }}>
             {children}
             {/* Toast Container */}
-            <div className="fixed top-4 right-4 z-[9999] flex flex-col gap-2 pointer-events-none max-w-sm w-full">
+            <div className="fixed top-5 right-5 z-[9999] flex flex-col gap-3 pointer-events-none max-w-sm w-full">
                 {toasts.map((toast) => (
                     <div
                         key={toast.id}
-                        className={`pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-2xl border backdrop-blur-xl shadow-2xl animate-in slide-in-from-right duration-300 ${colors[toast.type]}`}
+                        className={`pointer-events-auto flex items-center gap-3 px-5 py-3.5 rounded-2xl border backdrop-blur-2xl shadow-2xl animate-slide-in-right ${colors[toast.type]}`}
+                        style={{ background: 'var(--surface)', borderColor: undefined }}
                         role="alert"
                     >
-                        <span className="material-symbols-outlined text-lg shrink-0">{icons[toast.type]}</span>
-                        <p className="text-sm font-medium text-text-main flex-1">{toast.message}</p>
+                        <span className="material-symbols-outlined text-xl shrink-0 fill-icon">{icons[toast.type]}</span>
+                        <p className="text-sm font-semibold text-text-main flex-1 leading-snug">{toast.message}</p>
                         <button
                             onClick={() => removeToast(toast.id)}
-                            className="text-slate-400 hover:text-text-main transition-colors shrink-0"
+                            className="text-text-muted hover:text-text-main transition-colors shrink-0 p-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5"
                         >
-                            <span className="material-symbols-outlined text-sm">close</span>
+                            <span className="material-symbols-outlined text-base">close</span>
                         </button>
                     </div>
                 ))}

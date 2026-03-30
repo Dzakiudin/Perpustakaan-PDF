@@ -430,7 +430,7 @@ export default function DashboardPage() {
                                 </div>
                                 <div className="h-2 w-full bg-black/10 dark:bg-white/5 rounded-full overflow-hidden border border-black/5 dark:border-white/5">
                                     <div
-                                        className="h-full bg-gradient-to-r from-primary to-[#0f5bb5] transition-all duration-1000 ease-out shadow-[0_0_10px_rgba(19,127,236,0.3)]"
+                                        className="h-full bg-gradient-to-r from-primary to-primary-hover transition-all duration-1000 ease-out shadow-[0_0_10px_rgba(255,90,95,0.3)]"
                                         style={{ width: `${Math.min(100, (stats.booksRead / stats.targetBooks) * 100)}%` }}
                                     ></div>
                                 </div>
@@ -479,12 +479,12 @@ export default function DashboardPage() {
                                     onClick={() => fileInputRef.current?.click()}
                                     className={`group relative h-64 rounded-[32px] border-2 border-dashed transition-all duration-500 cursor-pointer overflow-hidden flex flex-col items-center justify-center gap-4
                                         ${file ? "border-primary bg-primary/5"
-                                            : isDragOver ? "border-primary bg-primary/10 scale-[1.02] shadow-[0_0_40px_rgba(19,127,236,0.2)]"
+                                            : isDragOver ? "border-primary bg-primary/10 scale-[1.02] shadow-[0_0_40px_rgba(255,90,95,0.2)]"
                                                 : "border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-primary/40 hover:bg-black/10 dark:bg-white/10"}`}
                                 >
                                     <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-10 pointer-events-none"></div>
                                     <div className={`size-20 rounded-[24px] flex items-center justify-center transition-all duration-500
-                                        ${file ? "bg-primary text-white shadow-[0_0_30px_rgba(19,127,236,0.5)] rotate-0"
+                                         ${file ? "bg-primary text-white shadow-[0_0_30px_rgba(255,90,95,0.4)] rotate-0"
                                             : isDragOver ? "bg-primary text-white scale-110 animate-pulse"
                                                 : "bg-bg-dark text-text-muted group-hover:text-primary group-hover:scale-110 -rotate-3 hover:rotate-0"}`}>
                                         <span className="material-symbols-outlined text-4xl leading-none">{file ? "task_alt" : isDragOver ? "download" : "file_upload"}</span>
@@ -546,7 +546,7 @@ export default function DashboardPage() {
                                                         <span className="material-symbols-outlined text-text-muted">add_photo_alternate</span>
                                                     )}
                                                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/cover:opacity-100 transition-opacity flex items-center justify-center">
-                                                        <span className="material-symbols-outlined text-text-main text-xl">upload</span>
+                                                        <span className="material-symbols-outlined text-white text-xl">upload</span>
                                                     </div>
                                                 </div>
                                                 <div className="flex flex-col">
@@ -558,7 +558,7 @@ export default function DashboardPage() {
 
                                             <div className="flex gap-3 w-full md:w-auto">
                                                 <button type="button" onClick={() => setFile(null)} className="flex-1 md:flex-none px-8 py-3 rounded-2xl text-text-muted font-bold hover:text-text-main hover:bg-black/5 dark:bg-white/5 transition-all uppercase tracking-widest text-[11px]">Cancel</button>
-                                                <button type="submit" disabled={uploading || !file || !title} className="flex-1 md:flex-none px-8 py-3 rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-[11px] shadow-[0_0_20px_rgba(19,127,236,0.3)] hover:bg-primary-hover hover:scale-105 transition-all flex items-center justify-center gap-2 relative overflow-hidden">
+                                                <button type="submit" disabled={uploading || !file || !title} className="flex-1 md:flex-none px-8 py-3 rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-[11px] shadow-[0_0_20px_rgba(255,90,95,0.25)] hover:bg-primary-hover hover:scale-105 transition-all flex items-center justify-center gap-2 relative overflow-hidden">
                                                     {uploading && (
                                                         <div className="absolute inset-0 bg-white/10" style={{ width: `${uploadProgress}%`, transition: 'width 0.3s ease' }} />
                                                     )}
@@ -598,12 +598,12 @@ export default function DashboardPage() {
                                                     <Image src={book.thumbnailPath} fill sizes="(max-width: 640px) 100vw, 25vw" className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0 grayscale-[0.3]" alt={book.title} />
                                                 ) : (
                                                     <div className={`w-full h-full bg-gradient-to-br ${book.color || "from-blue-600 to-indigo-800"} flex items-center justify-center p-8 text-center`}>
-                                                        <p className="text-text-main font-black text-xs uppercase leading-tight tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">{book.title}</p>
+                                                        <p className="text-white font-black text-xs uppercase leading-tight tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">{book.title}</p>
                                                     </div>
                                                 )}
                                                 {/* Overlay Info */}
                                                 <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-bg-dark/80 to-transparent">
-                                                    <div className="flex items-center gap-1.5 text-[10px] font-black text-text-main/60 uppercase tracking-widest">
+                                                    <div className="flex items-center gap-1.5 text-[10px] font-black text-white/60 uppercase tracking-widest">
                                                         <span className="material-symbols-outlined text-xs">visibility</span> {book.viewCount || 0} Reads
                                                     </div>
                                                 </div>
@@ -686,7 +686,7 @@ export default function DashboardPage() {
                                                 <div className="size-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg">
                                                     <span className="material-symbols-outlined">edit</span>
                                                 </div>
-                                                <span className="text-[10px] font-black text-text-main uppercase tracking-widest">Update Artwork</span>
+                                                <span className="text-[10px] font-black text-white uppercase tracking-widest">Update Artwork</span>
                                             </div>
                                             <input id="edit-cover-input" type="file" onChange={handleEditCoverSelect} accept="image/*" className="hidden" />
                                         </div>
@@ -723,7 +723,7 @@ export default function DashboardPage() {
 
                                     <div className="sm:col-span-2 flex items-center justify-end gap-3 pt-6 border-t border-black/5 dark:border-white/5">
                                         <button type="button" onClick={() => setEditingBook(null)} className="px-8 py-3 rounded-2xl text-text-muted font-black uppercase tracking-widest text-[11px] hover:text-text-main hover:bg-black/5 dark:bg-white/5 transition-all">Discard</button>
-                                        <button type="submit" disabled={saving || !editForm.title} className="px-10 py-4 rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-[11px] shadow-[0_0_30px_rgba(19,127,236,0.3)] hover:bg-primary-hover hover:scale-105 transition-all active:scale-95 flex items-center gap-2">
+                                        <button type="submit" disabled={saving || !editForm.title} className="px-10 py-4 rounded-2xl bg-primary text-white font-black uppercase tracking-widest text-[11px] shadow-[0_0_30px_rgba(255,90,95,0.25)] hover:bg-primary-hover hover:scale-105 transition-all active:scale-95 flex items-center gap-2">
                                             {saving && <span className="material-symbols-outlined animate-spin text-[18px]">progress_activity</span>}
                                             {saving ? "Updating Systems..." : "Commit Changes"}
                                         </button>
