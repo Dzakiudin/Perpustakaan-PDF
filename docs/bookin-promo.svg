@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+<title id="title">Book-In — Your personal library, reimagined</title>
+<desc id="desc">Banner promosi perpustakaan PDF digital dengan mockup dashboard dan pembaca PDF.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B1024"/><stop offset=".52" stop-color="#172554"/><stop offset="1" stop-color="#312E81"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#60A5FA"/><stop offset="1" stop-color="#A78BFA"/></linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#050816" flood-opacity=".35"/></filter>
+  <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#fff" stroke-opacity=".06"/></pattern>
+</defs>
+<rect width="1200" height="560" rx="28" fill="url(#bg)"/><rect width="1200" height="560" rx="28" fill="url(#grid)"/>
+<circle cx="1045" cy="92" r="190" fill="#6366F1" opacity=".18"/><circle cx="895" cy="490" r="220" fill="#38BDF8" opacity=".1"/>
+<g font-family="Inter,Segoe UI,Arial,sans-serif">
+<rect x="64" y="58" width="48" height="48" rx="14" fill="url(#accent)"/><path d="M77 70Q88 66 98 73V94Q88 87 77 92Z" fill="#fff"/><path d="M99 73Q105 70 108 72V92Q104 89 99 94Z" fill="#fff" opacity=".7"/>
+<text x="126" y="89" font-size="28" font-weight="750" fill="#fff">Book-In</text>
+<text x="64" y="178" font-size="16" letter-spacing="3.2" font-weight="700" fill="#93C5FD">YOUR DIGITAL READING SPACE</text>
+<text x="60" y="238" font-size="54" font-weight="800" letter-spacing="-1.6" fill="#fff">Your personal</text><text x="60" y="298" font-size="54" font-weight="800" letter-spacing="-1.6" fill="#fff">library, <tspan fill="#A5B4FC">reimagined.</tspan></text>
+<text x="64" y="342" font-size="19" fill="#D8E2FF">Simpan. Baca. Temukan wawasan baru.</text><text x="64" y="371" font-size="19" fill="#D8E2FF">Semua koleksi PDF dalam satu ruang.</text>
+<rect x="64" y="412" width="214" height="54" rx="14" fill="url(#accent)"/><text x="88" y="446" font-size="16" font-weight="750" fill="#0B1024">READ SMARTER →</text>
+<circle cx="68" cy="492" r="4" fill="#60A5FA"/><text x="82" y="498" font-size="13" fill="#C7D2FE">PDF Library</text><circle cx="192" cy="492" r="4" fill="#A78BFA"/><text x="206" y="498" font-size="13" fill="#C7D2FE">AI-assisted reading</text>
+<rect x="782" y="65" width="355" height="428" rx="24" fill="#F8FAFF" filter="url(#shadow)"/><path d="M806 65H1113Q1137 65 1137 89V113H782V89Q782 65 806 65Z" fill="#EEF2FF"/>
+<circle cx="806" cy="89" r="5" fill="#F87171"/><circle cx="824" cy="89" r="5" fill="#FBBF24"/><circle cx="842" cy="89" r="5" fill="#34D399"/><text x="867" y="94" font-size="12" font-weight="700" fill="#334155">BOOK-IN / LIBRARY</text>
+<text x="806" y="145" font-size="19" font-weight="800" fill="#111827">Good evening, reader</text><text x="806" y="166" font-size="11" fill="#64748B">Continue your learning journey</text>
+<rect x="806" y="185" width="307" height="58" rx="13" fill="#E0E7FF"/><circle cx="835" cy="214" r="16" fill="#6366F1"/><path d="M829 205Q835 202 841 206V222Q835 218 829 221Z" fill="#fff"/><text x="862" y="209" font-size="12" font-weight="750" fill="#312E81">Continue reading</text><text x="862" y="226" font-size="10" fill="#4F46E5">Design &amp; the digital world</text>
+<rect x="806" y="262" width="92" height="142" rx="9" fill="#DBEAFE"/><rect x="812" y="269" width="80" height="129" rx="5" fill="#1D4ED8"/><circle cx="852" cy="308" r="20" fill="#93C5FD"/><path d="M824 340H880V385H824Z" fill="#60A5FA"/><text x="820" y="363" font-size="10" font-weight="800" fill="#fff">DESIGN</text><text x="820" y="378" font-size="8" fill="#DBEAFE">ESSENTIALS</text>
+<rect x="912" y="262" width="92" height="142" rx="9" fill="#FCE7F3"/><rect x="918" y="269" width="80" height="129" rx="5" fill="#9D174D"/><path d="M926 289H990M926 297H980" stroke="#FBCFE8" stroke-width="3" stroke-linecap="round"/><circle cx="958" cy="334" r="22" fill="#F9A8D4"/><path d="M945 337L958 315L971 337Z" fill="#831843"/><text x="926" y="376" font-size="10" font-weight="800" fill="#fff">CREATIVE</text>
+<rect x="1018" y="262" width="92" height="142" rx="9" fill="#D1FAE5"/><rect x="1024" y="269" width="80" height="129" rx="5" fill="#065F46"/><path d="M1035 290H1093M1035 300H1086M1035 310H1093" stroke="#A7F3D0" stroke-width="3" stroke-linecap="round"/><circle cx="1064" cy="346" r="20" fill="#34D399"/><path d="M1054 346L1062 354L1076 336" stroke="#064E3B" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="1034" y="378" font-size="9" font-weight="800" fill="#fff">PRODUCTIVITY</text>
+<text x="806" y="431" font-size="12" font-weight="750" fill="#111827">Ask your AI reading assistant</text><rect x="806" y="443" width="307" height="34" rx="10" fill="#fff" stroke="#CBD5E1"/><text x="820" y="464" font-size="11" fill="#64748B">Ask a question about your reading…</text><circle cx="1091" cy="460" r="11" fill="#6366F1"/><path d="M1087 460H1095M1091 456V464" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+</g></svg>
